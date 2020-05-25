@@ -19,8 +19,25 @@
       "required": false
     },
     "categories": {
-      "via": "restaurants",
-      "collection": "category"
+      "collection": "category",
+      "via": "restaurants"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "restaurant_hours": {
+      "type": "component",
+      "repeatable": true,
+      "component": "hours.hours-of-operation",
+      "required": true
     }
   }
 }

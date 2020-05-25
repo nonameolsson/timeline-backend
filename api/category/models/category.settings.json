@@ -15,8 +15,8 @@
       "unique": true
     },
     "restaurants": {
-      "collection": "restaurant",
       "via": "categories",
+      "collection": "restaurant",
       "dominant": true
     }
   }
