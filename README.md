@@ -1,2 +1,3 @@
-# timeline-backend
-Back-end for Timeline in Strapi
+# Strapi application
+
+A quick description of your strapi application
