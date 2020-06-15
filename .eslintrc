@@ -20,8 +20,20 @@
   "rules": {
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "linebreak-style": ["error", "unix"],
-    "no-console": 0,
+    "no-console": "error",
     "quotes": ["error", "single"],
-    "semi": ["error", "always"]
+    "no-unused-vars": "error",
+    "semi": ["error", "never"],
+    "no-extra-semi": "error",
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "single", "multiple"]
+      }
+    ],
+    "prefer-destructuring": "warn"
   }
 }

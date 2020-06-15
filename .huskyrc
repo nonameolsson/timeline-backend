@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "pre-commit": "npm run check-format && lint-staged",
+    "pre-push": "npm run validate"
+  }
+}

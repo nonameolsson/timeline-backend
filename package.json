@@ -7,21 +7,36 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "check-format": "npm run prettier -- --list-different",
+    "lint:errors": "npm run lint -- --quiet",
+    "lint:fix": "npm run lint -- --fix",
+    "lint": "eslint --ignore-path .gitignore './api/**/*.{js,json}'",
+    "prettier": "prettier --ignore-path --write './api/**/*.+(js|json)'",
+    "validate": "npm-run-all --parallel check-format lint"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-eslint": "10.1.0",
+    "eslint": "7.2.0",
+    "husky": "4.2.5",
+    "lint-staged": "10.2.10",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.0.5",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-prettier": "3.1.3"
+  },
   "dependencies": {
+    "knex": "<0.20.0",
+    "sqlite3": "latest",
     "strapi": "3.0.1",
     "strapi-admin": "3.0.1",
-    "strapi-utils": "3.0.1",
-    "strapi-plugin-content-type-builder": "3.0.1",
+    "strapi-connector-bookshelf": "3.0.1",
     "strapi-plugin-content-manager": "3.0.1",
-    "strapi-plugin-users-permissions": "3.0.1",
+    "strapi-plugin-content-type-builder": "3.0.1",
     "strapi-plugin-email": "3.0.1",
     "strapi-plugin-upload": "3.0.1",
-    "strapi-connector-bookshelf": "3.0.1",
-    "knex": "<0.20.0",
-    "sqlite3": "latest"
+    "strapi-plugin-users-permissions": "3.0.1",
+    "strapi-utils": "3.0.1"
   },
   "author": {
     "name": "A Strapi developer"
