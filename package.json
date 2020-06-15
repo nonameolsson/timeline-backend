@@ -12,8 +12,8 @@
     "check-format": "yarn prettier --list-different",
     "lint:errors": "yarn lint --quiet",
     "lint:fix": "yarn lint --fix",
-    "lint": "eslint --ignore-path .gitignore './api/**/*.{js}' './config/**/*.{js}' './extensions/**/*.{js}'",
-    "prettier": "prettier --ignore-path --write './api/**/*.+(js)' './config/**/*.+(js)' './extensions/**/*.+(js)'",
+    "lint": "eslint --ignore-path .gitignore './api/**/*.{js,json}' './config/**/*.{js,json}' './extensions/**/*.{js,json}'",
+    "prettier": "prettier --ignore-path --write './api/**/*.+(js|json)' './config/**/*.+(js|json)' './extensions/**/*.+(js|json)'",
     "release": "standard-version",
     "validate": "npm-run-all --parallel check-format lint"
   },
@@ -23,6 +23,7 @@
     "cz-conventional-changelog": "3.2.0",
     "eslint": "7.2.0",
     "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-json": "2.1.1",
     "eslint-plugin-prettier": "3.1.4",
     "husky": "4.2.5",
     "lint-staged": "10.2.10",
