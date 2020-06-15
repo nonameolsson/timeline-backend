@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "timelines",
+  "info": {
+    "name": "Timeline"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "private": false,
+      "required": true
+    }
+  }
+}
