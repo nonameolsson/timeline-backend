@@ -1,6 +1,5 @@
 {
   "hooks": {
-    "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
     "pre-commit": "npm run check-format && lint-staged",
     "pre-push": "npm run validate",
   }
