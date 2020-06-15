@@ -2,6 +2,7 @@
   "parser": "babel-eslint",
   "extends": [
     "eslint:recommended",
+    "plugin:json/recommended",
     "plugin:prettier/recommended" // Make sure this is always the last configuration in the extends array. Enables eslint-plugin-prettier and],
   ],
   "plugins": ["prettier"],
@@ -14,7 +15,8 @@
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
-      "jsx": false
+      "jsx": false,
+      "arrowFunctions": true
     },
     "sourceType": "module"
   },
