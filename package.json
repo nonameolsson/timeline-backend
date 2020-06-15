@@ -1,8 +1,8 @@
 {
-  "name": "timeline",
+  "name": "timeline-backend",
   "private": true,
   "version": "0.1.0",
-  "description": "Back-end for Timeline",
+  "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -11,24 +11,23 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "strapi": "3.0.1",
+    "strapi-admin": "3.0.1",
+    "strapi-utils": "3.0.1",
+    "strapi-plugin-content-type-builder": "3.0.1",
+    "strapi-plugin-content-manager": "3.0.1",
+    "strapi-plugin-users-permissions": "3.0.1",
+    "strapi-plugin-email": "3.0.1",
+    "strapi-plugin-upload": "3.0.1",
+    "strapi-connector-bookshelf": "3.0.1",
     "knex": "<0.20.0",
-    "sqlite3": "latest",
-    "strapi": "3.0.0-beta.20.1",
-    "strapi-admin": "3.0.0-beta.20.1",
-    "strapi-connector-bookshelf": "3.0.0-beta.20.1",
-    "strapi-plugin-content-manager": "3.0.0-beta.20.1",
-    "strapi-plugin-content-type-builder": "3.0.0-beta.20.1",
-    "strapi-plugin-email": "3.0.0-beta.20.1",
-    "strapi-plugin-graphql": "3.0.0-beta.20.1",
-    "strapi-plugin-upload": "3.0.0-beta.20.1",
-    "strapi-plugin-users-permissions": "3.0.0-beta.20.1",
-    "strapi-utils": "3.0.0-beta.20.1"
+    "sqlite3": "latest"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "f5c40a49-7e53-432c-a282-9faef4c5e3f1"
+    "uuid": "1d6f6034-734d-4abe-b318-2cec2dd66b09"
   },
   "engines": {
     "node": ">=10.0.0",
