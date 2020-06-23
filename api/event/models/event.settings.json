@@ -16,10 +16,10 @@
     "description": {
       "type": "richtext"
     },
-    "timeline": {
-      "unique": true,
-      "model": "timeline",
-      "via": "events"
+    "timelines": {
+      "collection": "timeline",
+      "via": "events",
+      "dominant": true
     }
   }
 }

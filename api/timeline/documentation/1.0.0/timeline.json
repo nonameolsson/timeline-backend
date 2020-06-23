@@ -50,7 +50,9 @@
           }
         },
         "summary": "",
-        "tags": ["Timeline"],
+        "tags": [
+          "Timeline"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -236,7 +238,9 @@
           }
         },
         "summary": "",
-        "tags": ["Timeline"],
+        "tags": [
+          "Timeline"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -301,7 +305,9 @@
           }
         },
         "summary": "",
-        "tags": ["Timeline"],
+        "tags": [
+          "Timeline"
+        ],
         "parameters": []
       }
     },
@@ -352,7 +358,9 @@
           }
         },
         "summary": "",
-        "tags": ["Timeline"],
+        "tags": [
+          "Timeline"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -412,7 +420,9 @@
           }
         },
         "summary": "",
-        "tags": ["Timeline"],
+        "tags": [
+          "Timeline"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -484,7 +494,9 @@
           }
         },
         "summary": "",
-        "tags": ["Timeline"],
+        "tags": [
+          "Timeline"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -503,7 +515,10 @@
   "components": {
     "schemas": {
       "Timeline": {
-        "required": ["id", "title"],
+        "required": [
+          "id",
+          "title"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -517,7 +532,10 @@
           "events": {
             "type": "array",
             "items": {
-              "required": ["id", "title"],
+              "required": [
+                "id",
+                "title"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -528,8 +546,11 @@
                 "description": {
                   "type": "string"
                 },
-                "timeline": {
-                  "type": "string"
+                "timelines": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 }
               }
             }
@@ -537,7 +558,9 @@
         }
       },
       "NewTimeline": {
-        "required": ["title"],
+        "required": [
+          "title"
+        ],
         "properties": {
           "title": {
             "type": "string"
