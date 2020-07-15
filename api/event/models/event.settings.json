@@ -14,12 +14,11 @@
       "required": true
     },
     "description": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "timeline": {
-      "unique": true,
-      "model": "timeline",
-      "via": "events"
+      "model": "timeline"
     }
   }
 }

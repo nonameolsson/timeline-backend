@@ -583,6 +583,12 @@
                 },
                 "role": {
                   "type": "string"
+                },
+                "timelines": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 }
               }
             }

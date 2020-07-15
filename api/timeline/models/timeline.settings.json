@@ -16,11 +16,13 @@
       "required": true
     },
     "description": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
-    "events": {
-      "via": "timeline",
-      "collection": "event"
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "timelines"
     }
   }
 }

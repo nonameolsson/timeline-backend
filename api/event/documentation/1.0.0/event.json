@@ -503,7 +503,7 @@
   "components": {
     "schemas": {
       "Event": {
-        "required": ["id", "title"],
+        "required": ["id", "title", "description"],
         "properties": {
           "id": {
             "type": "string"
@@ -515,7 +515,7 @@
             "type": "string"
           },
           "timeline": {
-            "required": ["id", "title"],
+            "required": ["id", "title", "description"],
             "properties": {
               "id": {
                 "type": "string"
@@ -526,18 +526,15 @@
               "description": {
                 "type": "string"
               },
-              "events": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+              "user": {
+                "type": "string"
               }
             }
           }
         }
       },
       "NewEvent": {
-        "required": ["title"],
+        "required": ["title", "description"],
         "properties": {
           "title": {
             "type": "string"

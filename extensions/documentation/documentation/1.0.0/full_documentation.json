@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "06/15/2020 7:07:29 PM"
+    "x-generation-date": "07/15/2020 8:23:48 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3148,7 +3148,7 @@
   "components": {
     "schemas": {
       "Event": {
-        "required": ["id", "title"],
+        "required": ["id", "title", "description"],
         "properties": {
           "id": {
             "type": "string"
@@ -3160,7 +3160,7 @@
             "type": "string"
           },
           "timeline": {
-            "required": ["id", "title"],
+            "required": ["id", "title", "description"],
             "properties": {
               "id": {
                 "type": "string"
@@ -3171,18 +3171,15 @@
               "description": {
                 "type": "string"
               },
-              "events": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+              "user": {
+                "type": "string"
               }
             }
           }
         }
       },
       "NewEvent": {
-        "required": ["title"],
+        "required": ["title", "description"],
         "properties": {
           "title": {
             "type": "string"
@@ -3196,7 +3193,7 @@
         }
       },
       "Timeline": {
-        "required": ["id", "title"],
+        "required": ["id", "title", "description"],
         "properties": {
           "id": {
             "type": "string"
@@ -3207,21 +3204,39 @@
           "description": {
             "type": "string"
           },
-          "events": {
-            "type": "array",
-            "items": {
-              "required": ["id", "title"],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "timeline": {
+          "user": {
+            "required": ["id", "username", "email"],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "timelines": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
               }
@@ -3230,7 +3245,7 @@
         }
       },
       "NewTimeline": {
-        "required": ["title"],
+        "required": ["title", "description"],
         "properties": {
           "title": {
             "type": "string"
@@ -3238,11 +3253,8 @@
           "description": {
             "type": "string"
           },
-          "events": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "user": {
+            "type": "string"
           }
         }
       },
@@ -3322,6 +3334,12 @@
                 },
                 "role": {
                   "type": "string"
+                },
+                "timelines": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 }
               }
             }
@@ -3408,6 +3426,26 @@
                 }
               }
             }
+          },
+          "timelines": {
+            "type": "array",
+            "items": {
+              "required": ["id", "title", "description"],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -3442,6 +3480,12 @@
           },
           "role": {
             "type": "string"
+          },
+          "timelines": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },

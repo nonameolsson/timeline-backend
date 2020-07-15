@@ -1209,6 +1209,26 @@
                 }
               }
             }
+          },
+          "timelines": {
+            "type": "array",
+            "items": {
+              "required": ["id", "title", "description"],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -1243,6 +1263,12 @@
           },
           "role": {
             "type": "string"
+          },
+          "timelines": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       }
