@@ -1224,6 +1224,12 @@
                 "description": {
                   "type": "string"
                 },
+                "events": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "user": {
                   "type": "string"
                 }

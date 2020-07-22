@@ -54,8 +54,8 @@
       "configurable": false
     },
     "timelines": {
-      "via": "user",
-      "collection": "timeline"
+      "collection": "timeline",
+      "via": "user"
     }
   }
 }

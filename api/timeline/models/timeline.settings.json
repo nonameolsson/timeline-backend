@@ -19,10 +19,14 @@
       "type": "richtext",
       "required": true
     },
+    "events": {
+      "collection": "event",
+      "via": "timeline"
+    },
     "user": {
+      "via": "timelines",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "timelines"
+      "model": "user"
     }
   }
 }

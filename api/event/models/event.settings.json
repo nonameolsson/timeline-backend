@@ -18,6 +18,7 @@
       "required": true
     },
     "timeline": {
+      "via": "events",
       "model": "timeline"
     }
   }
