@@ -15,7 +15,9 @@
     "lint": "eslint --ignore-path .gitignore './api/**/*.{js,json}' './config/**/*.{js,json}' './extensions/**/*.{js,json}'",
     "prettier": "prettier --ignore-path --write './api/**/*.+(js|json)' './config/**/*.+(js|json)' './extensions/**/*.+(js|json)'",
     "release": "standard-version",
-    "validate": "npm-run-all --parallel check-format lint"
+    "validate": "npm-run-all --parallel check-format lint",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "devDependencies": {
     "babel-eslint": "10.1.0",
@@ -44,7 +46,8 @@
     "strapi-plugin-graphql": "3.1.6",
     "strapi-plugin-upload": "3.2.1",
     "strapi-plugin-users-permissions": "3.1.4",
-    "strapi-utils": "3.1.4"
+    "strapi-utils": "3.1.4",
+    "snyk": "^1.410.3"
   },
   "author": {
     "name": "A Strapi developer"
@@ -61,5 +64,6 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "snyk": true
 }
