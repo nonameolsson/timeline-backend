@@ -1,0 +1,24 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.19.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - strapi-plugin-upload > @buffetjs/core > react-dates > lodash:
+        patched: '2020-10-08T06:34:28.107Z'
+    - strapi-plugin-upload > @buffetjs/utils > yup > lodash:
+        patched: '2020-10-08T06:34:28.107Z'
+    - strapi > strapi-database > strapi-utils > yup > lodash:
+        patched: '2020-10-08T06:34:28.107Z'
+    - strapi-plugin-upload > @buffetjs/custom > @buffetjs/core > react-dates > lodash:
+        patched: '2020-10-08T06:34:28.107Z'
+    - strapi-plugin-upload > @buffetjs/custom > @buffetjs/utils > yup > lodash:
+        patched: '2020-10-08T06:34:28.107Z'
+    - strapi-plugin-upload > @buffetjs/custom > @buffetjs/core > @buffetjs/styles > react-dates > lodash:
+        patched: '2020-10-08T06:34:28.107Z'
+    - strapi-plugin-upload > @buffetjs/custom > @buffetjs/core > @buffetjs/utils > yup > lodash:
+        patched: '2020-10-08T06:34:28.107Z'
+    - strapi-plugin-upload > strapi-helper-plugin > @buffetjs/custom > @buffetjs/core > @buffetjs/styles > react-dates > lodash:
+        patched: '2020-10-08T06:34:28.107Z'
+    - strapi-plugin-upload > strapi-helper-plugin > @buffetjs/custom > @buffetjs/core > @buffetjs/utils > yup > lodash:
+        patched: '2020-10-08T06:34:28.107Z'
