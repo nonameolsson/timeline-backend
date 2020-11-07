@@ -20,8 +20,8 @@
       "required": true
     },
     "events": {
-      "collection": "event",
-      "via": "timeline"
+      "via": "timeline",
+      "collection": "event"
     },
     "user": {
       "via": "timelines",
