@@ -22,3 +22,39 @@ patch:
         patched: '2020-10-08T06:34:28.107Z'
     - strapi-plugin-upload > strapi-helper-plugin > @buffetjs/custom > @buffetjs/core > @buffetjs/utils > yup > lodash:
         patched: '2020-10-08T06:34:28.107Z'
+    - strapi-plugin-documentation > @buffetjs/core > react-dates > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-plugin-users-permissions > @buffetjs/core > react-dates > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-plugin-documentation > @buffetjs/utils > yup > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-plugin-users-permissions > @buffetjs/utils > yup > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-plugin-documentation > @buffetjs/custom > @buffetjs/core > react-dates > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-plugin-users-permissions > @buffetjs/custom > @buffetjs/core > react-dates > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-plugin-documentation > @buffetjs/custom > @buffetjs/utils > yup > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-plugin-users-permissions > @buffetjs/custom > @buffetjs/utils > yup > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-plugin-documentation > @buffetjs/custom > @buffetjs/core > @buffetjs/styles > react-dates > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-plugin-users-permissions > @buffetjs/custom > @buffetjs/core > @buffetjs/styles > react-dates > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-plugin-documentation > @buffetjs/custom > @buffetjs/core > @buffetjs/utils > yup > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-plugin-users-permissions > @buffetjs/custom > @buffetjs/core > @buffetjs/utils > yup > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-admin > strapi-helper-plugin > @buffetjs/custom > @buffetjs/core > @buffetjs/styles > react-dates > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-plugin-documentation > strapi-helper-plugin > @buffetjs/custom > @buffetjs/core > @buffetjs/styles > react-dates > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-plugin-users-permissions > strapi-helper-plugin > @buffetjs/custom > @buffetjs/core > @buffetjs/styles > react-dates > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-admin > strapi-helper-plugin > @buffetjs/custom > @buffetjs/core > @buffetjs/utils > yup > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-plugin-documentation > strapi-helper-plugin > @buffetjs/custom > @buffetjs/core > @buffetjs/utils > yup > lodash:
+        patched: '2020-11-07T21:19:28.974Z'
+    - strapi-plugin-users-permissions > strapi-helper-plugin > @buffetjs/custom > @buffetjs/core > @buffetjs/utils > yup > lodash:
+        patched: '2020-11-07T21:19:28.974Z'

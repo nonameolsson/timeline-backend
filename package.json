@@ -36,7 +36,7 @@
   "dependencies": {
     "knex": "0.21.3",
     "sqlite3": "latest",
-    "snyk": "^1.410.3",
+    "snyk": "^1.424.4",
     "strapi-admin": "3.2.5",
     "strapi-connector-bookshelf": "3.2.5",
     "strapi-plugin-content-manager": "3.2.5",
