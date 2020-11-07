@@ -15,11 +15,16 @@
     },
     "description": {
       "type": "richtext",
-      "required": true
+      "required": false
     },
     "timeline": {
-      "via": "events",
-      "model": "timeline"
+      "model": "timeline",
+      "via": "events"
+    },
+    "url": {
+      "type": "string",
+      "private": false,
+      "required": false
     }
   }
 }

@@ -40,5 +40,63 @@
   "[javascript]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "sqltools.connections": [
+    {
+      "database": "cplan_preprod",
+      "driver": "PostgreSQL",
+      "group": "cPlan",
+      "name": "cPlan preprod",
+      "password": "jfsad9fs092jl19",
+      "port": 5432,
+      "previewLimit": 50,
+      "server": "10.0.1.152",
+      "username": "cplan_preprod"
+    },
+    {
+      "database": "cplan_prod",
+      "driver": "PostgreSQL",
+      "group": "cPlan",
+      "name": "cPlan prod",
+      "password": "pqe4gcbq9rjg",
+      "port": 5432,
+      "previewLimit": 50,
+      "server": "10.0.1.152",
+      "username": "cplan_prod"
+    },
+    {
+      "database": "cplan_dev",
+      "driver": "PostgreSQL",
+      "group": "cPlan",
+      "name": "cPlan dev",
+      "password": "n5pKd2pMZYXB",
+      "port": 5432,
+      "previewLimit": 50,
+      "server": "10.0.1.152",
+      "username": "cplan_dev"
+    },
+    {
+      "mssqlOptions": {
+        "appName": "SQLTools",
+        "useUTC": true,
+        "encrypt": true
+      },
+      "previewLimit": 50,
+      "server": "10.0.1.134",
+      "port": 1433,
+      "driver": "MSSQL",
+      "name": "Opus Dev",
+      "group": "Opus",
+      "database": "OpusSprint",
+      "username": "OpusSprintDbo",
+      "password": "OpusSprintDbo"
+    },
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "name": "Timeline",
+      "group": "Timeline",
+      "database": "${workspaceFolder:timeline-backend}/.tmp/data.db"
+    }
+  ]
 }
