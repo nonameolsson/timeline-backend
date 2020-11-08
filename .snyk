@@ -58,3 +58,39 @@ patch:
         patched: '2020-11-07T21:19:28.974Z'
     - strapi-plugin-users-permissions > strapi-helper-plugin > @buffetjs/custom > @buffetjs/core > @buffetjs/utils > yup > lodash:
         patched: '2020-11-07T21:19:28.974Z'
+    - snyk > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > snyk-go-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > snyk-cpp-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > snyk-docker-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > snyk-gradle-plugin > @snyk/java-call-graph-builder > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > snyk-docker-plugin > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > snyk-mvn-plugin > @snyk/java-call-graph-builder > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cli-interface > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > snyk-gradle-plugin > @snyk/cli-interface > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > snyk-mvn-plugin > @snyk/cli-interface > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > snyk-php-plugin > @snyk/cli-interface > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > snyk-python-plugin > @snyk/cli-interface > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > snyk-python-plugin > snyk-poetry-lockfile-parser > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
+    - snyk > snyk-python-plugin > snyk-poetry-lockfile-parser > @snyk/cli-interface > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-11-08T08:20:53.610Z'
