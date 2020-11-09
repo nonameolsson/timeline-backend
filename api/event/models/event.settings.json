@@ -2,11 +2,13 @@
   "kind": "collectionType",
   "collectionName": "events",
   "info": {
-    "name": "event"
+    "name": "event",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
     "title": {
@@ -25,6 +27,10 @@
       "type": "string",
       "private": false,
       "required": false
+    },
+    "date": {
+      "type": "date",
+      "required": true
     }
   }
 }

@@ -517,7 +517,7 @@
           "events": {
             "type": "array",
             "items": {
-              "required": ["id", "title"],
+              "required": ["id", "title", "date"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -532,6 +532,9 @@
                   "type": "string"
                 },
                 "url": {
+                  "type": "string"
+                },
+                "date": {
                   "type": "string"
                 },
                 "created_by": {
