@@ -1,6 +1,0 @@
-{
-  "hooks": {
-    "pre-commit": "yarn check-format && lint-staged",
-    "pre-push": "yarn validate",
-  }
-}

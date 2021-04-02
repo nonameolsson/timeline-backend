@@ -17,26 +17,26 @@
     "release": "standard-version",
     "validate": "npm-run-all --parallel check-format lint",
     "snyk-protect": "snyk protect",
-    "prepare": "yarn run snyk-protect"
+    "prepare": "yarn run snyk-protect && husky install"
   },
   "devDependencies": {
-    "babel-eslint": "10.1.0",
-    "commitizen": "4.1.2",
-    "git-cz": "^4.7.6",
+    "babel-eslint": "^10.1.0",
     "eslint": "7.2.0",
-    "eslint-config-prettier": "6.11.0",
-    "eslint-plugin-json": "2.1.1",
-    "eslint-plugin-prettier": "3.3.1",
-    "husky": "4.2.5",
-    "lint-staged": "10.2.10",
-    "npm-run-all": "4.1.5",
-    "prettier": "2.0.5",
-    "standard-version": "8.0.1"
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-json": "^2.1.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "git-cz": "^4.7.6",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.2.10",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5",
+    "standard-version": "^8.0.1"
   },
   "dependencies": {
     "knex": "0.21.4",
-    "sqlite3": "latest",
     "snyk": "^1.425.4",
+    "sqlite3": "latest",
+    "strapi": "3.5.4",
     "strapi-admin": "3.5.4",
     "strapi-connector-bookshelf": "3.5.4",
     "strapi-plugin-content-manager": "3.5.4",
@@ -46,8 +46,7 @@
     "strapi-plugin-graphql": "3.5.4",
     "strapi-plugin-upload": "3.5.4",
     "strapi-plugin-users-permissions": "3.5.4",
-    "strapi-utils": "3.5.4",
-    "strapi": "3.5.4"
+    "strapi-utils": "3.5.4"
   },
   "author": {
     "name": "A Strapi developer"
