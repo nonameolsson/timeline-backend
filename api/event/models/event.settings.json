@@ -27,6 +27,10 @@
       "type": "string",
       "private": false,
       "required": false
+    },
+    "date": {
+      "type": "string",
+      "required": true
     }
   }
 }

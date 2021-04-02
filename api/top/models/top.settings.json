@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "infomessage",
+  "info": {
+    "name": "Info Message",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}
