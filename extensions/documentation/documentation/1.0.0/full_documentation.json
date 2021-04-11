@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "04/11/2021 3:13:57 PM"
+    "x-generation-date": "04/11/2021 5:37:56 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2650,7 +2650,7 @@
   "components": {
     "schemas": {
       "Event": {
-        "required": ["id", "title", "date"],
+        "required": ["id", "title", "startDate", "endDate"],
         "properties": {
           "id": {
             "type": "string"
@@ -2693,13 +2693,16 @@
           "url": {
             "type": "string"
           },
-          "date": {
+          "startDate": {
+            "type": "string"
+          },
+          "endDate": {
             "type": "string"
           }
         }
       },
       "NewEvent": {
-        "required": ["title", "date"],
+        "required": ["title", "startDate", "endDate"],
         "properties": {
           "title": {
             "type": "string"
@@ -2713,7 +2716,10 @@
           "url": {
             "type": "string"
           },
-          "date": {
+          "startDate": {
+            "type": "string"
+          },
+          "endDate": {
             "type": "string"
           },
           "created_by": {
@@ -2739,7 +2745,7 @@
           "events": {
             "type": "array",
             "items": {
-              "required": ["id", "title", "date"],
+              "required": ["id", "title", "startDate", "endDate"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -2756,7 +2762,10 @@
                 "url": {
                   "type": "string"
                 },
-                "date": {
+                "startDate": {
+                  "type": "string"
+                },
+                "endDate": {
                   "type": "string"
                 },
                 "created_by": {

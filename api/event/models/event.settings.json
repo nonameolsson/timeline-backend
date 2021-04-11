@@ -28,7 +28,11 @@
       "private": false,
       "required": false
     },
-    "date": {
+    "startDate": {
+      "type": "string",
+      "required": true
+    },
+    "endDate": {
       "type": "string",
       "required": true
     }
