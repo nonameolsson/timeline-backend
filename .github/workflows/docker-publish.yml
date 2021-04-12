@@ -1,0 +1,91 @@
+name: Docker
+
+on:
+  push:
+    # Publish `main` as Docker `latest` image.
+    branches:
+      - main
+
+    # Publish `v1.2.3` tags as releases.
+    tags:
+      - v*
+
+  release:
+    types:
+      - created
+
+env:
+  IMAGE_NAME: your_timeline_backend
+  BUILD_NR: ${{ github.run_id }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+        - uses: actions/checkout@v2
+
+        - name: Build image
+          run: docker build . --file Dockerfile --tag $IMAGE_NAME
+
+        - name: Log into registry
+          run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+
+        - name: Push image
+          run: |
+            IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+
+            # Change all uppercase to lowercase and dashes to underscores
+            IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]' | tr '-' '_')
+
+            # Strip git ref prefix from version
+            VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+
+            # This will only run on a tag
+            # Strip "v" prefix from tag name
+            [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+
+            # This will only run on main branch
+            # Use Docker `latest` tag convention when building on main branch
+            [ "$VERSION" == "main" ] && VERSION=latest
+
+            echo IMAGE_ID=$IMAGE_ID
+            echo VERSION=$VERSION
+            echo BUILD_NR=$BUILD_NR
+
+            docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
+            docker push $IMAGE_ID:$VERSION
+
+  deploy-beta:
+    needs: build
+    name: Deploy to beta
+    runs-on: ubuntu-latest
+    environment: 'beta'
+    if: github.event_name == 'push'
+    steps:
+      - name: Show build number
+        run: echo ${BUILD_NR}
+      - name: Deploy to beta
+        uses: dankore/github-to-caprover@v.1.0.3
+        with:
+          server: '${{ secrets.CAPROVER_URL }}'
+          password: '${{ secrets.CAPROVER_PASSWORD }}'
+          appName: '${{ secrets.CAPROVER_APP }}'
+          image: 'docker.pkg.github.com/nonameolsson/timeline_backend/your_timeline_backend:latest'
+
+  deploy-production:
+    name: Deploy to production
+    needs: build
+    runs-on: ubuntu-latest
+    environment: 'production'
+    if: github.event_name == 'release'
+    steps:
+      - name: Show build number
+        run: echo ${BUILD_NR}
+      - name: Deploy to production
+        uses: dankore/github-to-caprover@v.1.0.3
+        with:
+          server: '${{ secrets.CAPROVER_URL }}'
+          password: '${{ secrets.CAPROVER_PASSWORD }}'
+          appName: '${{ secrets.CAPROVER_APP }}'
+          image: 'docker.pkg.github.com/nonameolsson/timeline_backend/your_timeline_backend:${BUILD_NR}'
