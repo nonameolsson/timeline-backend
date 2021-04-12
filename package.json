@@ -16,8 +16,8 @@
     "prettier": "prettier --ignore-path --write './api/**/*.+(js|json)' './config/**/*.+(js|json)' './extensions/**/*.+(js|json)'",
     "release": "standard-version",
     "validate": "npm-run-all --parallel check-format lint",
-    "snyk-protect": "snyk protect",
-    "prepare": "yarn run snyk-protect && husky install"
+    "prepare": "yarn husky install",
+    "deploy": "./deploy.sh"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -35,7 +35,6 @@
   "dependencies": {
     "knex": "0.21.4",
     "pg": "^8.5.1",
-    "snyk": "^1.425.4",
     "sqlite3": "latest",
     "strapi": "3.5.4",
     "strapi-admin": "3.5.4",
@@ -50,20 +49,19 @@
     "strapi-utils": "3.5.4"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Andreas Olsson"
   },
   "strapi": {
     "uuid": "1d6f6034-734d-4abe-b318-2cec2dd66b09"
   },
   "engines": {
-    "node": ">=10.0.0",
-    "npm": ">=6.0.0"
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": "^6.0.0"
   },
   "license": "MIT",
   "config": {
     "commitizen": {
       "path": "./node_modules/git-cz"
     }
-  },
-  "snyk": true
+  }
 }

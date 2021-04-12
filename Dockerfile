@@ -1,16 +1,21 @@
 FROM node:14-alpine
 
-RUN apk update && apk upgrade && \
-    apk add --no-cache git
+# Use production as default environment
+# This can also be modified in CapRover
+ARG NODE_ENV=production
+ENV ENV_NODE_ENV=${NODE_ENV}
+
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-COPY ./package*.json /usr/src/app/
+COPY ./package.json ./yarn.lock /usr/src/app/
 
-RUN yarn install --production && yarn build && yarn cache clean --force
+RUN yarn install --production --frozen-lockfile
 
 COPY ./ /usr/src/app
-ENV NODE_ENV production
+
+RUN yarn build
+
 ENV PORT 80
 EXPOSE 80
 
