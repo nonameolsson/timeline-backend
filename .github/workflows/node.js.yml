@@ -23,10 +23,3 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build app
         run: yarn build
-      - name: Deploy to Caprover Using GitHub Actions
-        uses: dankore/github-to-caprover@v.1.0.3
-        with:
-          server: '${{ secrets.CAPROVER_URL }}'
-          password: '${{ secrets.CAPROVER_PASSWORD }}'
-          appName: '${{ secrets.CAPROVER_APP }}'
-          branch: 'main'
