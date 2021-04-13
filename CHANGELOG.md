@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/nonameolsson/timeline-backend/compare/v0.1.3...v0.1.5) (2021-04-13)
+
+### Features
+
+- 🎸 Add start- and end date
+  ([eba7f11](https://github.com/nonameolsson/timeline-backend/commit/eba7f11a3686738741428fd8617eb00b03f1ad74))
+
+### Bug Fixes
+
+- 🐛 Remove unused content type
+  ([7e2de0a](https://github.com/nonameolsson/timeline-backend/commit/7e2de0a099ff31337d6edcd2e94019495009313e))
+
+### Others
+
+- **release:** 0.1.4
+  ([5c09e25](https://github.com/nonameolsson/timeline-backend/commit/5c09e25b785c6ce6c4bfa636189c65f2eb47dcb9))
+- 🤖 Add captain-definition
+  ([af5c56c](https://github.com/nonameolsson/timeline-backend/commit/af5c56cefd2752f4bb7e04078286a38dc1cf033b))
+- 🤖 Add Dockerfile
+  ([762dc5a](https://github.com/nonameolsson/timeline-backend/commit/762dc5aa49e9e45d0a2ff9c4e027b2055998b222))
+- 🤖 Add GitHub action for build
+  ([4d76ba9](https://github.com/nonameolsson/timeline-backend/commit/4d76ba95dad50a8b2a16ad8e7604669e072e67d9))
+- 🤖 Add support for dev and prod database
+  ([5e5994d](https://github.com/nonameolsson/timeline-backend/commit/5e5994d44e7a795c93970d03f61edde45ad0ff7f))
+- 🤖 Configured production/database.json
+  ([2efe848](https://github.com/nonameolsson/timeline-backend/commit/2efe8484a4751d726cfc448ebf753dea5ba3e5ca))
+
 ### [0.1.4](https://github.com/nonameolsson/timeline-backend/compare/v0.1.3...v0.1.4) (2021-04-11)
 
 ### Bug Fixes
