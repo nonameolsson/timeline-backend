@@ -63,8 +63,6 @@ jobs:
     environment: 'beta'
     if: github.event_name == 'push'
     steps:
-      - name: Show build number
-        run: echo ${BUILD_NR}
       - name: Deploy to beta
         uses: dankore/github-to-caprover@v.1.0.3
         with:
@@ -80,8 +78,6 @@ jobs:
     environment: 'production'
     if: github.event_name == 'release'
     steps:
-      - name: Show build number
-        run: echo ${BUILD_NR}
       - name: Deploy to production
         uses: dankore/github-to-caprover@v.1.0.3
         with:
