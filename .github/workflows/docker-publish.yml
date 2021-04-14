@@ -3,25 +3,41 @@ name: Docker
 on:
   push:
     # Publish `main` as Docker `latest` image.
-    branches:
-      - main
+    branches: [main]
 
     # Publish `v1.2.3` tags as releases.
-    tags:
-      - v*
+    tags: [v*]
 
   release:
-    types:
-      - created
+    # Publish a GitHub release as image.
+    types: [created]
+
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
 
 env:
-  IMAGE_NAME: your_timeline_backend
-  BUILD_NR: ${{ github.run_id }}
+  IMAGE_NAME: strapi
+  DOCKER_REGISTRY: docker.pkg.github.com
+  REPO_NAME: ${{ github.event.repository.name }} # like 'myreponame'
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  URL: ${{ secrets.URL }}
 
 jobs:
-  build:
+  Changelog:
     runs-on: ubuntu-latest
+    name: Checks CHANGELOG.md for updates
+    if: github.event_name == 'release'
+    steps:
+      - uses: mwcodebase/versioning-checker@v2.2
+        with:
+          tracked_files: 'CHANGELOG.md'
 
+  Build:
+    name: Build and push image
+    runs-on: ubuntu-latest
+    outputs:
+      image_id: ${{ steps.push.outputs.image_id }}
     steps:
         - uses: actions/checkout@v2
 
@@ -29,14 +45,17 @@ jobs:
           run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
         - name: Log into registry
-          run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+          run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ${DOCKER_REGISTRY} -u ${{ github.actor }} --password-stdin
 
         - name: Push image
+          id: push
           run: |
-            IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+            # Like docker.pkg.github.com/nonameolsson/timeline-backend/strapi
+            IMAGE_ID=${DOCKER_REGISTRY}/${GITHUB_REPOSITORY}/${IMAGE_NAME}
 
             # Change all uppercase to lowercase and dashes to underscores
-            IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]' | tr '-' '_')
+            IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+            # IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]' | tr '-' '_')
 
             # Strip git ref prefix from version
             VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
@@ -45,43 +64,90 @@ jobs:
             # Strip "v" prefix from tag name
             [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
 
+            # This will only run on pull request
+            # Add 'staging' tag
+            [[ "${{ github.ref }}" == "refs/pull/"* ]] && VERSION=staging
+
             # This will only run on main branch
             # Use Docker `latest` tag convention when building on main branch
             [ "$VERSION" == "main" ] && VERSION=latest
 
+            DATE_BUILDNUMBER=$(date +%Y%m%d).$GITHUB_RUN_NUMBER
+
+            echo GITHUB_REF=$GITHUB_REF
             echo IMAGE_ID=$IMAGE_ID
             echo VERSION=$VERSION
-            echo BUILD_NR=$BUILD_NR
 
             docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-            docker push $IMAGE_ID:$VERSION
+            docker tag $IMAGE_NAME $IMAGE_ID:$DATE_BUILDNUMBER
+            docker push $IMAGE_ID --all-tags
 
-  deploy-beta:
-    needs: build
-    name: Deploy to beta
+            echo "::set-output name=image_id::$IMAGE_ID:$DATE_BUILDNUMBER"
+
+  DeployStaging:
+    needs: [Build]
+    name: Deploy to Staging
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
-    environment: 'beta'
-    if: github.event_name == 'push'
+    environment:
+      name: Staging
+      url: 'https://strapi-beta.yourtimeline.app' # Put this in secret
     steps:
-      - name: Deploy to beta
-        uses: dankore/github-to-caprover@v.1.0.3
+      - name: Start deployment
+        uses: bobheadxi/deployments@v0.4.3
+        id: deployment
+        with:
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env: Staging
+
+      - name: Deploy to Staging
+        uses: dankore/github-to-caprover@v.1.0.6
         with:
           server: '${{ secrets.CAPROVER_URL }}'
           password: '${{ secrets.CAPROVER_PASSWORD }}'
           appName: '${{ secrets.CAPROVER_APP }}'
-          image: 'docker.pkg.github.com/nonameolsson/timeline_backend/your_timeline_backend:latest'
+          image: '${{ needs.build.outputs.image_id }}'
 
-  deploy-production:
+      - name: Update deployment status
+        uses: bobheadxi/deployments@v0.4.3
+        if: always()
+        with:
+          step: finish
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+
+  DeployProduction:
     name: Deploy to production
-    needs: build
+    needs: [Changelog, Build]
     runs-on: ubuntu-latest
-    environment: 'production'
+    environment:
+      name: Production
+      url: 'https://strapi.yourtimeline.app' # Put this in secret
     if: github.event_name == 'release'
     steps:
+      - name: Start deployment
+        uses: bobheadxi/deployments@v0.4.3
+        id: deployment
+        with:
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env: production
+
       - name: Deploy to production
-        uses: dankore/github-to-caprover@v.1.0.3
+        uses: dankore/github-to-caprover@v.1.0.6
         with:
           server: '${{ secrets.CAPROVER_URL }}'
           password: '${{ secrets.CAPROVER_PASSWORD }}'
           appName: '${{ secrets.CAPROVER_APP }}'
-          image: 'docker.pkg.github.com/nonameolsson/timeline_backend/your_timeline_backend:${BUILD_NR}'
+          image: '${{needs.build.outputs.image_id }}'
+
+      - name: Update deployment status
+        uses: bobheadxi/deployments@v0.4.3
+        if: always()
+        with:
+          step: finish
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
