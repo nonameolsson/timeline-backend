@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/nonameolsson/timeline-backend/compare/v0.1.5...v0.1.6) (2021-04-14)
+
+### Docs
+
+- ✏️ Update Readme.md
+  ([e94789e](https://github.com/nonameolsson/timeline-backend/commit/e94789e261995932c426df19c88213b9fe05ebd8))
+
+### Others
+
+- 🤖 Add Dockerfile and GitHub actions
+  ([a5e1343](https://github.com/nonameolsson/timeline-backend/commit/a5e13432bf730be129252a440be8127afd305ac6))
+- 🤖 Remove log of build number
+  ([cd7e0ee](https://github.com/nonameolsson/timeline-backend/commit/cd7e0eeee19f39016af855ba92433655028c513b))
+- 🤖 Remove nodejs build workflow
+  ([c95a2fc](https://github.com/nonameolsson/timeline-backend/commit/c95a2fcdcb346f92e240ae597a6d3e3d25f85a66))
+
 ### [0.1.5](https://github.com/nonameolsson/timeline-backend/compare/v0.1.3...v0.1.5) (2021-04-13)
 
 ### Features
