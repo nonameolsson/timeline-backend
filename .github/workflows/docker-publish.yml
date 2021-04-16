@@ -26,7 +26,7 @@ jobs:
   Changelog:
     runs-on: ubuntu-latest
     name: Checks CHANGELOG.md for updates
-    if: github.event_name == 'push' && github.ref == 'refs/tags/*'
+    if: github.event_name == 'push'
     steps:
       - uses: mwcodebase/versioning-checker@v2.2
         with:
@@ -132,7 +132,7 @@ jobs:
         with:
           step: start
           token: ${{ secrets.GITHUB_TOKEN }}
-          env: production
+          env: Production
 
       - name: Deploy to production
         uses: dankore/github-to-caprover@v.1.0.6
