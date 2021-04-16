@@ -21,7 +21,6 @@ env:
   DOCKER_REGISTRY: docker.pkg.github.com
   REPO_NAME: ${{ github.event.repository.name }} # like 'myreponame'
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  URL: ${{ secrets.URL }}
 
 jobs:
   Changelog:
