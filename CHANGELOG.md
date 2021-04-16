@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/nonameolsson/timeline-backend/compare/v0.1.6...v0.1.7) (2021-04-16)
+
+### Bug Fixes
+
+- 🐛 Add missing config for admin URL in production
+  ([08d608c](https://github.com/nonameolsson/timeline-backend/commit/08d608c6a4a47b37bbee11d94f7d90563ab63d82))
+
+### Others
+
+- 🤖 Add GitHub Deployments in deploy workflow
+  ([244f81f](https://github.com/nonameolsson/timeline-backend/commit/244f81f5b9fe3a52c671e96d2fc44b3978c262ec))
+- 🤖 Remove unused URL variable
+  ([0c8edd7](https://github.com/nonameolsson/timeline-backend/commit/0c8edd7304eb98281c326863a1ac1dab974a88b4))
+
 ### [0.1.6](https://github.com/nonameolsson/timeline-backend/compare/v0.1.5...v0.1.6) (2021-04-14)
 
 ### Docs

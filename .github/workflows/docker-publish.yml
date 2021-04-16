@@ -26,7 +26,7 @@ jobs:
   Changelog:
     runs-on: ubuntu-latest
     name: Checks CHANGELOG.md for updates
-    if: github.event_name == 'release'
+    if: github.event_name == 'push' && github.ref == 'refs/tags/*'
     steps:
       - uses: mwcodebase/versioning-checker@v2.2
         with:
@@ -119,7 +119,7 @@ jobs:
 
   DeployProduction:
     name: Deploy to production
-    needs: [Changelog, Build]
+    needs: [Build]
     runs-on: ubuntu-latest
     environment:
       name: Production
