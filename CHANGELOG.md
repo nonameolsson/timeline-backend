@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/nonameolsson/timeline-backend/compare/v0.1.7...v0.1.8) (2021-04-17)
+
+### Others
+
+- 🤖 Rename production environment
+  ([7c4777b](https://github.com/nonameolsson/timeline-backend/commit/7c4777b24dbf4826f60e222bfdcc22bca70f6480))
+- 🤖 Trigger CHANGELOG check only when pushing a tag
+  ([c2230e3](https://github.com/nonameolsson/timeline-backend/commit/c2230e3587a0ddffe3dc3f414aada8aff079bc05))
+
 ### [0.1.7](https://github.com/nonameolsson/timeline-backend/compare/v0.1.6...v0.1.7) (2021-04-16)
 
 ### Bug Fixes
