@@ -23,10 +23,11 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
+  # When pushing a tag, make sure the CHANGELOG.md is updated. This content will be used later on when creating a release.
   Changelog:
     runs-on: ubuntu-latest
     name: Checks CHANGELOG.md for updates
-    if: github.event_name == 'push'
+    if: startsWith(github.ref, 'refs/tags/v')
     steps:
       - uses: mwcodebase/versioning-checker@v2.2
         with:
