@@ -84,10 +84,44 @@ jobs:
 
             echo "::set-output name=image_id::$IMAGE_ID:$DATE_BUILDNUMBER"
 
+  DeployDevelopment:
+    needs: [Build]
+    name: Deploy to Development
+    if: github.ref == 'refs/heads/main' # Develop contains the latest code on main branch
+    runs-on: ubuntu-latest
+    environment:
+      name: Development
+      url: 'https://strapi-develop.yourtimeline.app'
+    steps:
+      - name: Start deployment
+        uses: bobheadxi/deployments@v0.4.3
+        id: deployment
+        with:
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env: Development
+
+      - name: Deploy to Development
+        uses: dankore/github-to-caprover@v.1.0.6
+        with:
+          server: '${{ secrets.CAPROVER_URL }}'
+          password: '${{ secrets.CAPROVER_PASSWORD }}'
+          appName: '${{ secrets.CAPROVER_APP }}'
+          image: '${{ needs.build.outputs.image_id }}'
+
+      - name: Update deployment status
+        uses: bobheadxi/deployments@v0.4.3
+        if: always()
+        with:
+          step: finish
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+
   DeployStaging:
     needs: [Build]
     name: Deploy to Staging
-    if: github.event_name == 'pull_request'
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     environment:
       name: Staging
@@ -119,7 +153,7 @@ jobs:
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
 
   DeployProduction:
-    name: Deploy to production
+    name: Deploy to Production
     needs: [Build]
     runs-on: ubuntu-latest
     environment:
