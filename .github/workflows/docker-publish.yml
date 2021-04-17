@@ -87,7 +87,7 @@ jobs:
   DeployDevelopment:
     needs: [Build]
     name: Deploy to Development
-    if: github.ref == 'refs/heads/main' # Develop contains the latest code on main branch
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     environment:
       name: Development
@@ -121,7 +121,7 @@ jobs:
   DeployStaging:
     needs: [Build]
     name: Deploy to Staging
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: github.event_name == 'refs/heads/main' # The latest code on main branch
     runs-on: ubuntu-latest
     environment:
       name: Staging
