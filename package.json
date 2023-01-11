@@ -33,7 +33,7 @@
     "standard-version": "^8.0.1"
   },
   "dependencies": {
-    "knex": "0.21.4",
+    "knex": "2.4.0",
     "pg": "^8.5.1",
     "sqlite3": "latest",
     "strapi": "3.5.4",
